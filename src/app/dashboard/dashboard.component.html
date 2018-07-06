@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-static-top">
+        <div class="container">  
+      <a class="navbar-brand" href="">GitUserSearch</a>
+        <form class="form-inline" (ngSubmit)="searchProfile(searchForm)" #searchForm="ngForm">
+          <input class="form-control mr-sm-3 " type="text" placeholder="Search by User Name" 
+            [(ngModel)]="userName"  
+            name="userName">
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+    </div>
+      </nav>
+      <br>
+      <div class="container">
+              <div class="row" *ngFor="let userdata of userList">
+                      
+<div class="col-md-3"></div>
+<div class="col-md-6 media border p-3"  >
+        <img alt="Profile Picture" align="left" src="{{userdata.avatar_url}}" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+        <div class="media-body">
+          <h4 class="mt-3">{{userdata.login}}</h4>
+          <div class="text-right"><a class="btn btn-success" (click)="getUser(userdata.login)">View Profile</a></div>
+          
+        </div>
+      </div>
+</div></div>

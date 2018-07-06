@@ -1,0 +1,75 @@
+<div *ngIf="SelectedProfile">
+        <div class="container">
+                <h2>GitHub Profile</h2>
+                <div class="card">
+                  <div class="card-header"><h3>{{SelectedProfile.name}}&nbsp;&nbsp;<small>({{SelectedProfile.login}})</small></h3>
+                    <span *ngIf="SelectedProfile.company"> Works at &nbsp;{{SelectedProfile.company}} {{SelectedProfile.location}}</span>
+                  </div>                   
+                    <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3"> <img class="img-rounded img-responsive" alt="Profile Picture" src="{{SelectedProfile.avatar_url}}" width="100%" >
+                                </div>
+                                <div class="col-sm-5">
+                                    <ul class="list-group">
+                                        <li class="list-group-item" *ngIf="SelectedProfile.email"><a href="mailto:{{SelectedProfile.email}}" target="_blank">{{SelectedProfile.email}}</a> </li>
+                                        <li class="list-group-item" *ngIf="SelectedProfile.bio">Bio: {{SelectedProfile.bio}}</li>
+                                        <li class="list-group-item" *ngIf="SelectedProfile.hireable">Available for hire</li>
+                                        <li class="list-group-item" *ngIf="SelectedProfile.blog"><a href="{{SelectedProfile.blog}}" target="_blank">{{SelectedProfile.blog}}</a></li>
+                                        <li class="list-group-item" *ngIf="SelectedProfile.bio">{{SelectedProfile.bio}}</li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4">
+                                    <span class="badge badge-primary">Followers &nbsp;  {{SelectedProfile.followers}}</span>
+                                    <br>
+                                    <span class="badge badge-primary">Followings &nbsp;  {{SelectedProfile.following}}</span>
+                                    <br>
+                                    <span class="badge badge-secondary">public_gists &nbsp;  {{SelectedProfile.public_gists}}</span>
+                                    <br>
+                                    <span class="badge badge-info">public_repos &nbsp;  {{SelectedProfile.public_repos}}</span>
+                                    <br>
+                                    <p><a href="{{SelectedProfile.html_url}}" class="btn btn-success btn-sm" target="_blank">See Profile On Github</a></p>
+                                </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                    <div class="col-sm-2"></div>
+                    
+                    <div class="col-sm-8">
+                            <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                       <h4>&nbsp; Repos:-</h4>
+                                    </div>
+                                
+                                    <div class="panel-body">
+                                            <table class="table table-hover">
+                                                    <thead>
+                                                      <tr>
+                                                        <th>Repository Name</th>
+                                                        <th>View Repository</th>
+                                                        <th>Description</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr *ngFor="let repository of myRepositories">
+                                                        <td>{{repository.name}}</td>
+                                                        <td><a href="{{repository.html_url}}" target="_blank">View repository Here</a></td>
+                                                        <td>{{repository.description}}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                  </table>
+                                    </div>
+                            </div> 
+                    </div>
+                    
+                    
+                    <div class="col-sm-2"></div>
+                    </div>
+                </div>
+                  <div class="card-footer">MadeBy &nbsp;
+                   joshigj15@gmail.com  
+                   
+                   <a class="btn btn-danger" routerLink='/dashboard'>Go Back</a>
+                </div>
+                </div>
+              </div>
+</div>
